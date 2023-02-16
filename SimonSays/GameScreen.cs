@@ -14,6 +14,7 @@ namespace SimonSays
 {
     public partial class GameScreen : UserControl
     {
+        int[] buttOrder = { 0, 1, 2, 3};
         int waitTime = 1200;
         int guessVar = 0;
         Random random = new Random();
@@ -76,6 +77,7 @@ namespace SimonSays
 
         private void ComputerTurn()
         {
+            
             foreach(GameTile tile in gameTiles)
             {
                 tile.button.BackColor = tile.defaultColor;
@@ -105,6 +107,23 @@ namespace SimonSays
             }
             //TODO: set guess value back to 0
             guessVar = 0;
+            ShuffleButtons();
+        }
+
+        public void ShuffleButtons()
+        {
+            buttOrder = Shuffle(buttOrder);
+
+            Point[] buttLocs =
+            {
+                greenButton.Location, redButton.Location, yellowButton.Location, blueButton.Location
+            };
+            for (int i = 0; i < gameTiles.Length; i++)
+            {
+                gameTiles[i].button.Location = buttLocs[Array.IndexOf(buttOrder, i)];
+               
+                
+            }
         }
 
         //TODO: create one of these event methods for each button
@@ -159,7 +178,29 @@ namespace SimonSays
             //TODO: close this screen and open the GameOverScreen
             Form1.ChangeScreen(this, new GameOverScreen());
         }
-
+        public int[] Shuffle (int[] array)
+        {
+            int n = array.Length;
+            while (n > 1) 
+            {
+                int k = random.Next(n--);
+                int temp = array[n];
+                array[n] = array[k];
+                array[k] = temp;
+            }
+            return array;
+        }
+        public int IndexOfFirst(int[] array, int val)
+        {
+            for(int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == val)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
         
     }
 
