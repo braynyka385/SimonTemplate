@@ -16,6 +16,7 @@ namespace SimonSays
     {
         //TODO: create a List to store the pattern. Must be accessable on other screens
         public static List<int> coloursList = new List<int>();
+        public static bool shuffleMode = true;
         public Form1()
         {
             InitializeComponent();

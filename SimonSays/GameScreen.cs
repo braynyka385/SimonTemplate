@@ -105,9 +105,9 @@ namespace SimonSays
                     item.button.BackColor = item.defaultColor;
                 }
             }
-            //TODO: set guess value back to 0
             guessVar = 0;
-            ShuffleButtons();
+            if(Form1.shuffleMode)
+                ShuffleButtons();
         }
 
         public void ShuffleButtons()
@@ -121,12 +121,9 @@ namespace SimonSays
             for (int i = 0; i < gameTiles.Length; i++)
             {
                 gameTiles[i].button.Location = buttLocs[Array.IndexOf(buttOrder, i)];
-               
-                
             }
         }
 
-        //TODO: create one of these event methods for each button
         private void greenButton_Click(object sender, EventArgs e)
         {
             ButtonClicked(sender, e, 0);

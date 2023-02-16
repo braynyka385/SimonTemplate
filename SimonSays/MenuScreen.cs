@@ -33,5 +33,16 @@ namespace SimonSays
         {
 
         }
+
+        private void shuffleButton_Click(object sender, EventArgs e)
+        {
+            Form1.shuffleMode = !Form1.shuffleMode;
+            shuffleButton.BackColor = Color.Red;
+            if (Form1.shuffleMode)
+            {
+                shuffleButton.BackColor = Color.Green;
+            }
+            Refresh();
+        }
     }
 }

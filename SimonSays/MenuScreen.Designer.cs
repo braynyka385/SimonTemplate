@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuScreen));
             this.exitButton = new System.Windows.Forms.Button();
             this.newButton = new System.Windows.Forms.Button();
+            this.shuffleButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exitButton
@@ -44,7 +45,7 @@
             this.exitButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.White;
             this.exitButton.Location = new System.Drawing.Point(21, 63);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(112, 39);
             this.exitButton.TabIndex = 19;
@@ -63,13 +64,25 @@
             this.newButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newButton.ForeColor = System.Drawing.Color.White;
             this.newButton.Location = new System.Drawing.Point(21, 16);
-            this.newButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newButton.Margin = new System.Windows.Forms.Padding(4);
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(112, 39);
             this.newButton.TabIndex = 18;
             this.newButton.Text = "New Game";
             this.newButton.UseVisualStyleBackColor = false;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            // 
+            // shuffleButton
+            // 
+            this.shuffleButton.BackColor = System.Drawing.Color.Green;
+            this.shuffleButton.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shuffleButton.Location = new System.Drawing.Point(227, 16);
+            this.shuffleButton.Name = "shuffleButton";
+            this.shuffleButton.Size = new System.Drawing.Size(147, 48);
+            this.shuffleButton.TabIndex = 20;
+            this.shuffleButton.Text = "Shuffle?";
+            this.shuffleButton.UseVisualStyleBackColor = false;
+            this.shuffleButton.Click += new System.EventHandler(this.shuffleButton_Click);
             // 
             // MenuScreen
             // 
@@ -78,6 +91,7 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.shuffleButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.newButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -92,5 +106,6 @@
 
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button newButton;
+        private System.Windows.Forms.Button shuffleButton;
     }
 }
