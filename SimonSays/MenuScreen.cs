@@ -18,14 +18,14 @@ namespace SimonSays
 
         private void newButton_Click(object sender, EventArgs e)
         {
-            //TODO: remove this screen and start the GameScreen
+            //remove this screen and start the GameScreen
             Form1.ChangeScreen(this, new GameScreen());
         }
 
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //TODO: end the application
+            //end the application
             Application.Exit();
         }
 
@@ -34,7 +34,7 @@ namespace SimonSays
 
         }
 
-        private void shuffleButton_Click(object sender, EventArgs e)
+        private void shuffleButton_Click(object sender, EventArgs e) //Enables/disables the shuffle game mode
         {
             Form1.shuffleMode = !Form1.shuffleMode;
             shuffleButton.BackColor = Color.Red;

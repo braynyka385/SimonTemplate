@@ -14,7 +14,7 @@ namespace SimonSays
 {
     public partial class Form1 : Form
     {
-        //TODO: create a List to store the pattern. Must be accessable on other screens
+        // create a List to store the pattern. Must be accessable on other screens
         public static List<int> coloursList = new List<int>();
         public static bool shuffleMode = true;
         public Form1()
@@ -24,12 +24,12 @@ namespace SimonSays
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //TODO: Launch MenuScreen
+            //Launch MenuScreen
             ChangeScreen(this, new MenuScreen());
         }
-        public static void ChangeScreen(object sender, UserControl next)
+        public static void ChangeScreen(object sender, UserControl next) // Unified function to change screens
         {
-            Form f; // will either be the sender or parent of sender 
+            Form f; 
             if (sender is Form)
             {
                 f = (Form)sender;

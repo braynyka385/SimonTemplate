@@ -14,7 +14,7 @@ namespace SimonSays
 {
     public partial class GameScreen : UserControl
     {
-        int[] buttOrder = { 0, 1, 2, 3};
+        int[] buttOrder = { 0, 1, 2, 3}; //Used to store the order on screen of buttons, for shuffle
         int waitTime = 1200;
         int guessVar = 0;
         Random random = new Random();
@@ -34,19 +34,20 @@ namespace SimonSays
 
         private void GameScreen_Load(object sender, EventArgs e)
         {
+            //Create GameTile objects which store info relating to the buttons
             gameTiles[0] = new GameTile(greenButton, Color.ForestGreen, Color.LightGreen, greenSound);
             gameTiles[1] = new GameTile(redButton, Color.DarkRed, Color.OrangeRed, redSound);
             gameTiles[2] = new GameTile(yellowButton, Color.Goldenrod, Color.LightYellow, yellowSound);
             gameTiles[3] = new GameTile(blueButton, Color.DarkBlue, Color.LightBlue, blueSound);
 
-            Blah();
+            //Blah();
             Form1.coloursList.Clear();
             Refresh();
             Thread.Sleep(1000);
             ComputerTurn();
         }
 
-        private void Blah()
+        /*private void Blah() //Rounds buttons
         {
             GraphicsPath circlePath = new GraphicsPath();
             int width = 90 * 2;
@@ -72,7 +73,7 @@ namespace SimonSays
                 gameTiles[i].button.Region = buttonRegion;
                 transformMatrix.RotateAt(90, new PointF(50, 50));
             }
-        }
+        }*/
   
 
         private void ComputerTurn()
@@ -110,7 +111,7 @@ namespace SimonSays
                 ShuffleButtons();
         }
 
-        public void ShuffleButtons()
+        public void ShuffleButtons() //Shuffles the button locations on screen
         {
             buttOrder = Shuffle(buttOrder);
 
@@ -144,7 +145,7 @@ namespace SimonSays
 
         }
 
-        private void ButtonClicked(object sender, EventArgs e, int buttonNum)
+        private void ButtonClicked(object sender, EventArgs e, int buttonNum) //Unified code for when a game button is clicked
         {
             if (Form1.coloursList[guessVar] == buttonNum)
             {
@@ -170,9 +171,9 @@ namespace SimonSays
         }
         public void GameOver()
         {
-            //TODO: Play a game over sound
+            // Play a game over sound
             mistakeSound.Play();
-            //TODO: close this screen and open the GameOverScreen
+            //close this screen and open the GameOverScreen
             Form1.ChangeScreen(this, new GameOverScreen());
         }
         public int[] Shuffle (int[] array)
@@ -187,7 +188,7 @@ namespace SimonSays
             }
             return array;
         }
-        public int IndexOfFirst(int[] array, int val)
+        public int IndexOfFirst(int[] array, int val) //Gets the index of the first instance of an integer value in an array
         {
             for(int i = 0; i < array.Length; i++)
             {
@@ -201,7 +202,7 @@ namespace SimonSays
         
     }
 
-    public class GameTile
+    public class GameTile //Object for storing data relating to game buttons, makes it easier to shuffle
     {
         public Button button;
         public Color defaultColor;
